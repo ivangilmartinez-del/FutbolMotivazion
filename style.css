@@ -1,0 +1,251 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente y colores generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #e67e22;
+}
+
+/* Hero */
+.hero {
+    background: url('https://images.unsplash.com/photo-1504470695779-516c36b2a519?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #000;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px #000;
+}
+
+.hero .btn {
+    padding: 10px 30px;
+    background-color: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #d35400;
+}
+
+/* Sección Motivación */
+.motivacion {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.motivacion h2 {
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #2ecc71;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Sección Tips */
+.tips {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #3498db;
+    color: #fff;
+}
+
+.tips h2 {
+    margin-bottom: 30px;
+}
+
+.tips ul {
+    list-style: none;
+}
+
+.tips ul li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+/* Galería de imágenes */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.galeria img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+/* Slider de imágenes */
+.slider {
+    overflow: hidden;
+    margin-top: 40px;
+    background-color: #27ae60;
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(180px * 11); /* ancho total de todas las imágenes */
+    animation: scroll 20s linear infinite;
+}
+
+.slide-track img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+/* Animación */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-180px * 9)); } /* mueve la cantidad de imágenes que hay */
+}
+/* Contenedor del slider con flechas */
+.slider-control {
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: #27ae60;
+    padding: 20px 0;
+}
+
+/* Contenedor interno para deslizar */
+.slider-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-track img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+/* Botones de control */
+.slider-control button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 2em;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.slider-control button:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.slider-control .prev {
+    left: 10px;
+}
+
+.slider-control .next {
+    right: 10px;
+}
+
