@@ -78,35 +78,3 @@ if (topBtn) {
     });
     topBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 }
-lightbox.addEventListener('click', e=>{
-    if(e.target!==lightboxImg) lightbox.style.display='none';
-});
-
-// BOTÓN VER MÁS
-document.querySelectorAll('.ver-mas').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-        const tips = btn.previousElementSibling.querySelectorAll('.more-content');
-        tips.forEach(tip=>{
-            tip.style.display = tip.style.display==='list-item'?'list-item':'list-item';
-            tip.style.display='list-item';
-        });
-    });
-});
-
-// ANIMACIÓN SECCIONES AL SCROLL
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', ()=>{
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(section=>{
-        const top = section.getBoundingClientRect().top;
-        if(top < triggerBottom){ section.classList.add('show'); }
-    });
-});
-
-// BOTÓN VOLVER ARRIBA
-const topBtn = document.getElementById('topBtn');
-window.addEventListener('scroll', ()=>{
-    if(window.scrollY > 200){ topBtn.style.display='block'; }
-    else{ topBtn.style.display='none'; }
-});
-topBtn.addEventListener('click', ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
