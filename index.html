@@ -20,18 +20,9 @@
                 <span>FútbolMotiva</span>
             </div>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#motivacion">Motivación</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#stats">Estadísticas</a></li>
-                    <li><a href="#tips">Tips</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-                <button class="nav-toggle" id="navToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="chat-btn" id="chatBtn">
+                    <i class="fas fa-robot"></i>
+                    <span>Asistente IA</span>
                 </button>
             </nav>
         </div>
@@ -277,6 +268,45 @@
     <button id="topBtn" class="top-btn" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Chatbot Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h3>Asistente IA FútbolMotiva</h3>
+                        <span class="status-online"><i class="fas fa-circle"></i> En línea</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="chat-message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>¡Hola! Soy tu asistente de FútbolMotiva. ¿En qué puedo ayudarte hoy?</p>
+                        <div class="quick-replies">
+                            <button class="quick-reply" data-question="¿Cómo puedo mejorar mi técnica?">¿Cómo mejorar mi técnica?</button>
+                            <button class="quick-reply" data-question="¿Qué ejercicios recomiendas?">Ejercicios recomendados</button>
+                            <button class="quick-reply" data-question="¿Cómo mantenerme motivado?">Mantenerme motivado</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+                <button id="chatSend" class="chat-send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

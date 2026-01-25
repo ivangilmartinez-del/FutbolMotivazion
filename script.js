@@ -1,19 +1,137 @@
-// ===== MENÚ HAMBURGUESA =====
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.querySelector('.nav-links');
+// ===== CHATBOT IA =====
+const chatBtn = document.getElementById('chatBtn');
+const chatModal = document.getElementById('chatModal');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
+// Abrir chat
+if (chatBtn) {
+    chatBtn.addEventListener('click', () => {
+        chatModal.classList.add('active');
+        chatInput.focus();
     });
 }
+
+// Cerrar chat
+if (chatClose) {
+    chatClose.addEventListener('click', () => {
+        chatModal.classList.remove('active');
+    });
+}
+
+// Cerrar al hacer clic fuera
+chatModal.addEventListener('click', (e) => {
+    if (e.target === chatModal) {
+        chatModal.classList.remove('active');
+    }
+});
+
+// Base de conocimientos del chatbot
+const chatResponses = {
+    'técnica': '¡Excelente pregunta! Para mejorar tu técnica: 1) Practica control de balón 15 min diarios, 2) Trabaja tu pierna menos hábil, 3) Observa videos de profesionales, 4) Practica regates con conos.',
+    'ejercicios': 'Te recomiendo estos ejercicios: 1) Saltos de caja para potencia, 2) Sprints de 20m para velocidad, 3) Escalera de agilidad, 4) Trabajo de core para estabilidad, 5) Flexibilidad con estiramientos dinámicos.',
+    'motivado': 'Mantente motivado con estos tips: 1) Establece metas alcanzables a corto plazo, 2) Celebra tus pequeños logros, 3) Entrena con compañeros, 4) Visualiza tu éxito, 5) Recuerda por qué amas el fútbol.',
+    'entrenamiento': 'Un buen entrenamiento incluye: 1) Calentamiento (10 min), 2) Técnica individual (20 min), 3) Ejercicios tácticos (30 min), 4) Partido práctica (30 min), 5) Estiramiento (10 min).',
+    'alimentación': 'Nutrición para futbolistas: 1) Carbohidratos complejos (arroz, pasta), 2) Proteínas magras (pollo, pescado), 3) Frutas y verduras, 4) Hidratación constante, 5) Evita comida chatarra.',
+    'lesiones': 'Prevención de lesiones: 1) Calienta siempre antes de jugar, 2) Estira después, 3) Fortalece músculos estabilizadores, 4) Descansa adecuadamente, 5) Usa equipo apropiado.',
+    'mentalidad': 'Mentalidad ganadora: 1) Confianza en ti mismo, 2) Aprende de los errores, 3) Mantén actitud positiva, 4) Visualiza el éxito, 5) Nunca te rindas.',
+    'equipo': 'Trabajo en equipo: 1) Comunica constantemente, 2) Apoya a tus compañeros, 3) Entiende tu rol, 4) Celebra los éxitos juntos, 5) Aprende de cada jugador.',
+    'default': '¡Interesante pregunta! Como asistente de FútbolMotiva, te recomiendo explorar nuestras secciones de Motivación y Tips. ¿Te gustaría saber sobre técnica, ejercicios o mantener la motivación?'
+};
+
+// Función para agregar mensaje
+function addMessage(text, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+    
+    messageDiv.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+        </div>
+        <div class="message-content">
+            <p>${text}</p>
+        </div>
+    `;
+    
+    chatBody.appendChild(messageDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// Función para mostrar indicador de escritura
+function showTyping() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'chat-message bot-message typing-message';
+    typingDiv.innerHTML = `
+        <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    `;
+    chatBody.appendChild(typingDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return typingDiv;
+}
+
+// Función para obtener respuesta
+function getResponse(question) {
+    const lowerQuestion = question.toLowerCase();
+    
+    for (const [key, response] of Object.entries(chatResponses)) {
+        if (key !== 'default' && lowerQuestion.includes(key)) {
+            return response;
+        }
+    }
+    
+    return chatResponses.default;
+}
+
+// Procesar mensaje
+function sendMessage() {
+    const message = chatInput.value.trim();
+    
+    if (message) {
+        addMessage(message, true);
+        chatInput.value = '';
+        
+        const typingIndicator = showTyping();
+        
+        setTimeout(() => {
+            typingIndicator.remove();
+            const response = getResponse(message);
+            addMessage(response);
+        }, 1500);
+    }
+}
+
+// Event listeners
+if (chatSend) {
+    chatSend.addEventListener('click', sendMessage);
+}
+
+if (chatInput) {
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+}
+
+// Quick replies
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('quick-reply')) {
+        const question = e.target.getAttribute('data-question');
+        chatInput.value = question;
+        sendMessage();
+    }
+});
 
 // ===== HEADER SCROLL EFFECT =====
 const header = document.querySelector('header');
