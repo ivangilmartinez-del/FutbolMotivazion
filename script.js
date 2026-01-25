@@ -1,7 +1,73 @@
-// SLIDER CARRUSEL INFINITO
+// ===== MENÚ HAMBURGUESA =====
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// ===== HEADER SCROLL EFFECT =====
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// ===== CONTADOR ANIMADO ESTADÍSTICAS =====
+const statNumbers = document.querySelectorAll('.stat-number');
+let animated = false;
+
+const animateStats = () => {
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const increment = target / 100;
+        let current = 0;
+
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                stat.textContent = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                stat.textContent = target;
+            }
+        };
+
+        updateCounter();
+    });
+};
+
+const statsSection = document.getElementById('stats');
+if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animateStats();
+                animated = true;
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(statsSection);
+}
+
+// ===== SLIDER CARRUSEL INFINITO =====
 const track = document.querySelector('.slider-track');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+const prevBtn = document.querySelector('.slider-btn.prev');
 
 if (track && nextBtn && prevBtn) {
     let position = 0;

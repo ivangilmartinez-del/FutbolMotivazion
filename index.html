@@ -3,99 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motivación Fútbol</title>
+    <title>FútbolMotiva - Tu motivación para triunfar</title>
+    <meta name="description" content="Inspiración y motivación para jugadores de fútbol. Alcanza tus metas con disciplina y trabajo en equipo.">
     <link rel="stylesheet" href="style.css">
     <!-- Fuentes modernas -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Header / Menú -->
     <header>
-        <div class="logo">⚽ FútbolMotiva</div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#motivacion">Motivación</a></li>
-                <li><a href="#tips">Tips</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+        <div class="container-header">
+            <div class="logo">
+                <i class="fas fa-futbol"></i>
+                <span>FútbolMotiva</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#motivacion">Motivación</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#stats">Estadísticas</a></li>
+                    <li><a href="#tips">Tips</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero / Imagen principal -->
     <section id="inicio" class="hero">
-        <h1>¡Cada entrenamiento cuenta!</h1>
-        <p>Tu esfuerzo hoy es tu éxito mañana.</p>
-        <a href="#motivacion" class="btn">Ver motivación</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">¡Cada entrenamiento cuenta!</h1>
+            <p class="hero-subtitle">Tu esfuerzo de hoy es tu victoria de mañana</p>
+            <div class="hero-buttons">
+                <a href="#motivacion" class="btn btn-primary">Inspírate Ahora</a>
+                <a href="#galeria" class="btn btn-secondary">Ver Galería</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
     <!-- Sección Motivación -->
     <section id="motivacion" class="motivacion">
-        <h2>Motivación para jugadores</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Disciplina</h3>
-                <p>Entrena con constancia y verás resultados.</p>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Mentalidad Ganadora</span>
+                <h2>Los Pilares del Éxito</h2>
+                <p>Desarrolla las cualidades que te harán imparable en la cancha</p>
             </div>
-            <div class="card">
-                <h3>Trabajo en equipo</h3>
-                <p>El fútbol se gana juntos, apoya a tus compañeros.</p>
-            </div>
-            <div class="card">
-                <h3>Actitud positiva</h3>
-                <p>Mantén siempre la mente en tus objetivos.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Disciplina</h3>
+                    <p>Entrena con constancia y verás resultados. La disciplina supera al talento cuando el talento no trabaja.</p>
+                    <div class="card-footer">
+                        <span>01</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Trabajo en Equipo</h3>
+                    <p>El fútbol se gana juntos. Apoya a tus compañeros y construye una conexión invencible en el campo.</p>
+                    <div class="card-footer">
+                        <span>02</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Actitud Positiva</h3>
+                    <p>Mantén siempre la mente en tus objetivos. La mentalidad correcta es el 90% del juego.</p>
+                    <div class="card-footer">
+                        <span>03</span>
+                    </div>
+                </div>
             </div>
         </div>
-   <!-- Galería de imágenes motivacionales -->
-<div class="galeria">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.6GtYvzR4yXC6Q6BV48yWFwHaHa?pid=Api&P=0&h=180" alt="Futbol 1">
-    <img src="https://tse1.mm.bing.net/th/id/OIP.kZvDunKXiSU8dbC8lizfaQHaMd?pid=Api&P=0&h=180" alt="Futbol 2">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.bW5ruJL99-Wm58PYm8EmdgHaHa?pid=Api&P=0&h=180" alt="Futbol 3">
-    <img src="https://tse2.mm.bing.net/th/id/OIP.9CSSqZ5467v4MbyopqKWQAHaJQ?pid=Api&P=0&h=180" alt="Futbol 4">
-    <img src="https://tse4.mm.bing.net/th/id/OIP.rkS3IxQTPcEAfYoyHQZc2wHaFj?pid=Api&P=0&h=180" alt="Futbol 5">
-    <img src="https://tse4.mm.bing.net/th/id/OIP.CnVz0JoDl772BKAy63tB8gHaE8?pid=Api&P=0&h=180" alt="Futbol 6">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.CoZo8wqykaTzAGiP7TxhKQHaNK?pid=Api&P=0&h=180" alt="Futbol 7">
-    <img src="https://tse3.mm.bing.net/th/id/OIP.ZaorI31NYM8jwa0Y1GywYQAAAA?pid=Api&P=0&h=180" alt="Futbol 8">
-    <img src="https://tse2.mm.bing.net/th/id/OIP.LFAr0CH-eW3s5QrJW2y4eQHaOl?pid=Api&P=0&h=180" alt="Futbol 9">
-</div>
+        </div>
+    </section>
 
- </section>
-<!-- Slider con control -->
-<div class="slider-control">
-    <button class="prev">&#10094;</button>
-    <div class="slider-track-container">
-        <div class="slider-track">
-            <img src="https://tse3.mm.bing.net/th/id/OIP.6GtYvzR4yXC6Q6BV48yWFwHaHa?pid=Api&P=0&h=180" alt="Futbol 1">
-            <img src="https://tse1.mm.bing.net/th/id/OIP.kZvDunKXiSU8dbC8lizfaQHaMd?pid=Api&P=0&h=180" alt="Futbol 2">
-            <img src="https://tse3.mm.bing.net/th/id/OIP.bW5ruJL99-Wm58PYm8EmdgHaHa?pid=Api&P=0&h=180" alt="Futbol 3">
-            <img src="https://tse2.mm.bing.net/th/id/OIP.9CSSqZ5467v4MbyopqKWQAHaJQ?pid=Api&P=0&h=180" alt="Futbol 4">
-            <img src="https://tse4.mm.bing.net/th/id/OIP.rkS3IxQTPcEAfYoyHQZc2wHaFj?pid=Api&P=0&h=180" alt="Futbol 5">
-            <img src="https://tse4.mm.bing.net/th/id/OIP.CnVz0JoDl772BKAy63tB8gHaE8?pid=Api&P=0&h=180" alt="Futbol 6">
-            <img src="https://tse3.mm.bing.net/th/id/OIP.CoZo8wqykaTzAGiP7TxhKQHaNK?pid=Api&P=0&h=180" alt="Futbol 7">
-            <img src="https://tse3.mm.bing.net/th/id/OIP.ZaorI31NYM8jwa0Y1GywYQAAAA?pid=Api&P=0&h=180" alt="Futbol 8">
-            <img src="https://tse2.mm.bing.net/th/id/OIP.LFAr0CH-eW3s5QrJW2y4eQHaOl?pid=Api&P=0&h=180" alt="Futbol 9">
+    <!-- Estadísticas -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-running"></i>
+                    <h3 class="stat-number" data-target="1000">0</h3>
+                    <p>Jugadores Motivados</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3 class="stat-number" data-target="500">0</h3>
+                    <p>Sesiones de Entrenamiento</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-medal"></i>
+                    <h3 class="stat-number" data-target="150">0</h3>
+                    <p>Objetivos Alcanzados</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-fire"></i>
+                    <h3 class="stat-number" data-target="98">0</h3>
+                    <p>% Satisfacción</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <button class="next">&#10095;</button>
-</div>
+    </section>
+
+    <!-- Galería de imágenes -->
+    <section id="galeria" class="galeria-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Inspiración Visual</span>
+                <h2>Momentos de Gloria</h2>
+                <p>Imágenes que capturan la pasión y dedicación del deporte rey</p>
+            </div>
+            <div class="galeria">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.6GtYvzR4yXC6Q6BV48yWFwHaHa?pid=Api&P=0&h=180" alt="Futbol 1">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.kZvDunKXiSU8dbC8lizfaQHaMd?pid=Api&P=0&h=180" alt="Futbol 2">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.bW5ruJL99-Wm58PYm8EmdgHaHa?pid=Api&P=0&h=180" alt="Futbol 3">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.9CSSqZ5467v4MbyopqKWQAHaJQ?pid=Api&P=0&h=180" alt="Futbol 4">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.rkS3IxQTPcEAfYoyHQZc2wHaFj?pid=Api&P=0&h=180" alt="Futbol 5">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.CnVz0JoDl772BKAy63tB8gHaE8?pid=Api&P=0&h=180" alt="Futbol 6">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.CoZo8wqykaTzAGiP7TxhKQHaNK?pid=Api&P=0&h=180" alt="Futbol 7">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.ZaorI31NYM8jwa0Y1GywYQAAAA?pid=Api&P=0&h=180" alt="Futbol 8">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.LFAr0CH-eW3s5QrJW2y4eQHaOl?pid=Api&P=0&h=180" alt="Futbol 9">
+            </div>
+        </div>
+    </section>
+    <!-- Slider con control -->
+    <section class="slider-section">
+        <div class="container">
+            <div class="slider-control">
+                <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track-container">
+                    <div class="slider-track">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.6GtYvzR4yXC6Q6BV48yWFwHaHa?pid=Api&P=0&h=180" alt="Futbol 1">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.kZvDunKXiSU8dbC8lizfaQHaMd?pid=Api&P=0&h=180" alt="Futbol 2">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.bW5ruJL99-Wm58PYm8EmdgHaHa?pid=Api&P=0&h=180" alt="Futbol 3">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.9CSSqZ5467v4MbyopqKWQAHaJQ?pid=Api&P=0&h=180" alt="Futbol 4">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.rkS3IxQTPcEAfYoyHQZc2wHaFj?pid=Api&P=0&h=180" alt="Futbol 5">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.CnVz0JoDl772BKAy63tB8gHaE8?pid=Api&P=0&h=180" alt="Futbol 6">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.CoZo8wqykaTzAGiP7TxhKQHaNK?pid=Api&P=0&h=180" alt="Futbol 7">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.ZaorI31NYM8jwa0Y1GywYQAAAA?pid=Api&P=0&h=180" alt="Futbol 8">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.LFAr0CH-eW3s5QrJW2y4eQHaOl?pid=Api&P=0&h=180" alt="Futbol 9">
+                    </div>
+                </div>
+                <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección Tips -->
     <section id="tips" class="tips">
-        <h2>Consejos prácticos</h2>
-        <ul>
-            <li>Calienta antes de cada entrenamiento.</li>
-            <li>Practica pases y tiros todos los días.</li>
-            <li>Escucha a tu entrenador y aprende de tus errores.</li>
-            <li>Cuida tu alimentación y descanso.</li>
-        </ul>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Consejos de Oro</span>
+                <h2>Entrena como un Profesional</h2>
+                <p>Aplica estos consejos en tu rutina diaria y ve la diferencia</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Calentamiento</h3>
+                    <p>Nunca subestimes la importancia del calentamiento. Prepara tu cuerpo antes de cada sesión para evitar lesiones.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h3>Práctica Diaria</h3>
+                    <p>La consistencia es clave. Dedica tiempo cada día a mejorar tus pases, tiros y control del balón.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Escucha y Aprende</h3>
+                    <p>Tu entrenador tiene experiencia. Acepta la crítica constructiva y aprende de cada error cometido.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrición</h3>
+                    <p>Tu cuerpo es tu herramienta. Aliméntalo correctamente y descansa lo suficiente para rendir al máximo.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mentalidad</h3>
+                    <p>El fútbol es 90% mental. Visualiza el éxito, mantén la confianza y nunca te rindas.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Análisis</h3>
+                    <p>Graba tus partidos y analízalos. Identifica áreas de mejora y celebra tus aciertos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>¿Listo para dar el siguiente paso?</h2>
+                <p>Únete a nuestra comunidad de jugadores motivados y alcanza tu máximo potencial</p>
+                <a href="#contacto" class="btn btn-primary btn-lg">Comienza Ahora</a>
+            </div>
+        </div>
     </section>
 
     <!-- Footer / Pie de página -->
     <footer id="contacto">
-        <p>Contacta: futbolmotiva@clase.com</p>
-        <p>© 2026 FútbolMotiva</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-futbol"></i> FútbolMotiva</h3>
+                    <p>Inspirando jugadores, construyendo campeones. Tu motivación diaria para alcanzar la grandeza en el campo.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#motivacion">Motivación</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#tips">Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> futbolmotiva@clase.com</li>
+                        <li><i class="fas fa-phone"></i> +34 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 FútbolMotiva. Todos los derechos reservados. | Diseñado con <i class="fas fa-heart"></i> para el fútbol</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Botón volver arriba -->
+    <button id="topBtn" class="top-btn" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
