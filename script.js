@@ -78,3 +78,89 @@ if (topBtn) {
     });
     topBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 }
+// LIGHTBOX - agrandar imágenes
+const images = document.querySelectorAll(".gallery img");
+
+const lightbox = document.createElement("div");
+lightbox.id = "lightbox";
+document.body.appendChild(lightbox);
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.classList.add("active");
+    const bigImg = document.createElement("img");
+    bigImg.src = img.src;
+
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild);
+    }
+
+    lightbox.appendChild(bigImg);
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 4000);
+showSlide(currentSlide);
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    topBtn.classList.add("show");
+  } else {
+    topBtn.classList.remove("show");
+  }
+});
+
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+const frases = [
+  "El esfuerzo de hoy es el éxito de mañana.",
+  "Entrena como juegas, juega como sueñas.",
+  "Sin sacrificio no hay victoria.",
+  "El talento suma, la mentalidad multiplica.",
+  "No se trata de ser el mejor, sino de ser mejor que ayer."
+];
+
+const fraseBox = document.getElementById("frase");
+
+if (fraseBox) {
+  fraseBox.textContent = frases[Math.floor(Math.random() * frases.length)];
+}
+let count = 0;
+const counter = document.getElementById("contador");
+
+function subirContador() {
+  if (count < 100) {
+    count++;
+    counter.textContent = count + "% Motivación";
+    setTimeout(subirContador, 30);
+  }
+}
+
+subirContador();
