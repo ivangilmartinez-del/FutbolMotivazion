@@ -30,137 +30,61 @@ if (track && nextBtn && prevBtn) {
     setInterval(() => moveSlider(1), 3000);
 }
 
-// LIGHTBOX
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.close');
+// LIGHTBOX - agrandar imágenes de la galería
+const images = document.querySelectorAll('.galeria img');
 
-if (lightbox && lightboxImg && closeBtn) {
-    document.querySelectorAll('.mini-galeria img').forEach(img => {
+if (images.length > 0) {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.cssText = 'display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;justify-content:center;align-items:center;cursor:pointer;';
+    document.body.appendChild(lightbox);
+
+    images.forEach(img => {
+        img.style.cursor = 'pointer';
         img.addEventListener('click', () => {
             lightbox.style.display = 'flex';
-            lightboxImg.src = img.src;
+            const bigImg = document.createElement('img');
+            bigImg.src = img.src;
+            bigImg.style.cssText = 'max-width:90%;max-height:90%;border-radius:10px;';
+            
+            while (lightbox.firstChild) {
+                lightbox.removeChild(lightbox.firstChild);
+            }
+            
+            lightbox.appendChild(bigImg);
         });
     });
-    closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
-    lightbox.addEventListener('click', e => {
-        if (e.target !== lightboxImg) lightbox.style.display = 'none';
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
     });
 }
 
-// BOTÓN VER MÁS
-document.querySelectorAll('.ver-mas').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tips = btn.previousElementSibling.querySelectorAll('.more-content');
-        tips.forEach(tip => {
-            tip.style.display = tip.style.display === 'list-item' ? 'none' : 'list-item';
-        });
-    });
-});
-
 // ANIMACIÓN SECCIONES AL SCROLL
 const sections = document.querySelectorAll('section');
-window.addEventListener('scroll', () => {
-    const triggerBottom = window.innerHeight * 0.85;
-    sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < triggerBottom) { section.classList.add('show'); }
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
     });
-});
+}, { threshold: 0.15 });
+
+sections.forEach(section => observer.observe(section));
 
 // BOTÓN VOLVER ARRIBA
 const topBtn = document.getElementById('topBtn');
 
 if (topBtn) {
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) { topBtn.style.display = 'block'; }
-        else { topBtn.style.display = 'none'; }
+        if (window.scrollY > 200) {
+            topBtn.style.display = 'block';
+        } else {
+            topBtn.style.display = 'none';
+        }
     });
-    topBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
-// LIGHTBOX - agrandar imágenes
-const images = document.querySelectorAll(".gallery img");
-
-const lightbox = document.createElement("div");
-lightbox.id = "lightbox";
-document.body.appendChild(lightbox);
-
-images.forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.classList.add("active");
-    const bigImg = document.createElement("img");
-    bigImg.src = img.src;
-
-    while (lightbox.firstChild) {
-      lightbox.removeChild(lightbox.firstChild);
-    }
-
-    lightbox.appendChild(bigImg);
-  });
-});
-
-lightbox.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-});
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[index].classList.add("active");
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-
-setInterval(nextSlide, 4000);
-showSlide(currentSlide);
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    topBtn.classList.add("show");
-  } else {
-    topBtn.classList.remove("show");
-  }
-});
-
-topBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-const frases = [
-  "El esfuerzo de hoy es el éxito de mañana.",
-  "Entrena como juegas, juega como sueñas.",
-  "Sin sacrificio no hay victoria.",
-  "El talento suma, la mentalidad multiplica.",
-  "No se trata de ser el mejor, sino de ser mejor que ayer."
-];
-
-const fraseBox = document.getElementById("frase");
-
-if (fraseBox) {
-  fraseBox.textContent = frases[Math.floor(Math.random() * frases.length)];
-}
-let count = 0;
-const counter = document.getElementById("contador");
-
-function subirContador() {
-  if (count < 100) {
-    count++;
-    counter.textContent = count + "% Motivación";
-    setTimeout(subirContador, 30);
-  }
-}
-
-subirContador();
